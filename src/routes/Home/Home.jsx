@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar/Navbar'
 import Paginado from '../../components/Paginado/Paginado'
 import Loading from '/images/pokeLoading.gif';
 import poke from '/images/pokebola.png';
+import SearchNotFound from '/images/searchNotFound.gif';
 
 const Home = () => {
     
@@ -229,7 +230,7 @@ const Home = () => {
                    ?
                    (
                     <h3>
-                        <img src="images/searchNotFound.gif" className={style.loading} alt="NotFound..." />
+                        <img src={SearchNotFound} className={style.loading} alt="NotFound..." />
                         
                     </h3>
                    )
