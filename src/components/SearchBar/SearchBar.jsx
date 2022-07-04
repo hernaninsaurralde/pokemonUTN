@@ -6,10 +6,6 @@ import {useState} from 'react'
 
 const SearchBar = ({name, setName}) => {
 
-   
-
-  
-    
   return (
     <div className={style.searchBox}>
             <form >
