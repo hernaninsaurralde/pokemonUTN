@@ -18,8 +18,6 @@ import Pin from '/images/cards/pin.png';
 import Navbar from '../../components/Navbar/Navbar';
 
 
-
-
 const Detail = () => {
 
   const params = useParams();
@@ -77,22 +75,20 @@ const Detail = () => {
       setSection(1);
     } else if (e.target.innerHTML === 'Base Stats') {
       setSection(2)
-    } else if (e.target.innerHTML === 'Evolution') {
-      setSection(3)
     }
   }
 
   return (
 
     <div>
-      
-        <Navbar  />
-      
-      
+
+      <Navbar />
+
+
       {pokemon.length === 0 || pokemonSpe.length === 0 ? (
-      <h3>
-        <img src={Loading} className={style.loading} alt="Loading..." />
-      </h3>
+        <h3>
+          <img src={Loading} className={style.loading} alt="Loading..." />
+        </h3>
 
       ) : (
 
@@ -103,33 +99,33 @@ const Detail = () => {
           </div>
 
           <nav className={style.sections} style={{ position: 'relative' }}>
-            <button onClick={e => handleSection(e)} className={section === 1 ? style.active : style.noactive}>About</button><span className={style.lineab} style={section === 1 ? { opacity: '100%' } : { opacity: '0%' }}></span>
+            <button onClick={e => handleSection(e)} className={section === 1 ? style.active : style.noactive}>About</button>
+            <span className={style.lineab} style={section === 1 ? { opacity: '100%' } : { opacity: '0%' }}></span>
+
             <button onClick={e => handleSection(e)} className={section === 2 ? style.active : style.noactive}>Base Stats</button><span className={style.linestat} style={section === 2 ? { opacity: '100%' } : { opacity: '0%' }}></span>
-            <button onClick={e => handleSection(e)} className={section === 3 ? style.active : style.noactive}>Evolution</button><span className={style.linevol} style={section === 3 ? { opacity: '100%' } : { opacity: '0%' }}></span>
           </nav>
 
           <div className={style.visual}>
-            <div className={style.fijo}> 
-
+            
 
               {/* Imagen pokemon */}
-            <img src={pokemon.sprites.other.home.front_default} className={style.img} />
+              <img src={pokemon.sprites.other.home.front_default} className={style.img} />
 
-            {/* Muestra los tipos */}
-            <div className={style.types}>
-              {
-                pokemon.types ? pokemon.types.map(el => {
-                  return (
-                    <img src={`../../images/types/${el.type.name}.png`} alt="Types" height="160px"  />
-                  )
+              {/* Muestra los tipos */}
+              <div className={style.types}>
+                {
+                  pokemon.types ? pokemon.types.map(el => {
+                    return (
+                      <img src={`../../images/types/${el.type.name}.png`} alt="Types" height="160px" />
+                    )
+                  }
+                  ) :
+                    <span>Types not found</span>
                 }
-                ) :
-                  <span>Types not found</span>
-              }
-            </div>
+              </div>
 
-            </div>
             
+
           </div>
 
           {/* Contenido de la pestaña 1 */}
@@ -173,7 +169,7 @@ const Detail = () => {
 
                       <div className={style.apinfo}>
                         {
-                          pokemon.moves.length ? pokemon.moves.map(el => {
+                          pokemon.moves.length ? pokemon.moves.slice(0, 8).map(el => {
                             return (
                               <span key={pokemon.id + 300} style={{ display: 'inline-block' }}><img src={Pokeball} alt='Move' height='13px' width='13px' /> {el.move.name.replace('-', ' ')}</span>
                             )
@@ -223,17 +219,17 @@ const Detail = () => {
 
                       <span>Location Area Encounters:</span>
 
-                      
-                          <div className={style.apinfo}>
-                            {
-                              pokemonLocation.length ? pokemonLocation.map(el => {
-                                return (
-                                  <span key={el} style={{ display: 'inline-block' }}><img src={Pin} alt='Location' height='13px' width='13px' /> {el.location_area.name.replace('-', ' ')}</span>
-                                )
-                              }) :
-                                <span style={{ width: '25vw' }}>This pokemon has no encounter locations</span>
-                            }
-                          </div>
+
+                      <div className={style.apinfo}>
+                        {
+                          pokemonLocation.length ? pokemonLocation.slice(0, 7).map(el => {
+                            return (
+                              <span key={el} style={{ display: 'inline-block' }}><img src={Pin} alt='Location' height='13px' width='13px' /> {el.location_area.name.replace('-', ' ')}</span>
+                            )
+                          }) :
+                            <span style={{ width: '25vw' }}>This pokemon has no encounter locations</span>
+                        }
+                      </div>
                     </div>
                   </div>
                 </div>

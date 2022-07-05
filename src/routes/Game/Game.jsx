@@ -4,6 +4,7 @@ import React, { useEffect, useState} from 'react';
 import style from './Game.module.css';
 import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
+import pokedex from '/images/pokedex.png';
 
 
 export default function Game(){
@@ -52,9 +53,10 @@ export default function Game(){
      const initGame = useMemo(()=>{
 
         for(let i = 0; i < 4; i++){
-            let indexRandom = getRandomInt(0, chosenPokemons.length) ;
+            //chosenPokemons.length
+            let indexRandom = getRandomInt(0, 10) ;
             let poke = chosenPokemons.splice(indexRandom, 1);
-            console.log(poke)
+            console.log("poke", poke)
             setPokeOptions(prevState => [...prevState, poke])
     }
         return pokeOptions

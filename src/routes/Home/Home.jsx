@@ -1,12 +1,13 @@
 import React from 'react';
-import style from './Home.module.css'
-import {useEffect, useState, useMemo} from 'react'
-import Card from '../../components/Card/Card'
+import style from './Home.module.css';
+import {useEffect, useState, useMemo} from 'react';
+import Card from '../../components/Card/Card';
 import axios from 'axios'; 
-import Navbar from '../../components/Navbar/Navbar'
-import Paginado from '../../components/Paginado/Paginado'
-
+import Navbar from '../../components/Navbar/Navbar';
+import Paginado from '../../components/Paginado/Paginado';
 import poke from '/images/pokebola.png';
+import pokedex from '/images/pokedex.png';
+
 import { Link } from 'react-router-dom';
 
 const Home = () => {
@@ -166,10 +167,14 @@ const handleOrder = (e) => {
     return (
     <div className = {style.fondo}>
         <Navbar searchTerm ={searchTerm} handleSearch={handleSearch} ></Navbar>
-        <button  className={style.poke} ><img src={poke} alt="pokebola" width='20px'/> Reload all</button>
+        <button  className={style.poke} ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
 
         
-        <Link to='/game' style={{textDecoration: 'none'}} className={style.game}><button className={style.poke}><img  alt="Who's that Pokemon" width='100px'/></button></Link>
+        <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>
+            <button className={style.poke}>
+                <img src={pokedex} alt="Who's that Pokemon" width='100px'/>
+            </button>
+        </Link>
 
         <div className={style.sortfilter}>
                 <select onChange={(e)=> handleOrder(e)}>
