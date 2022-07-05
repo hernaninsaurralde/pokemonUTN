@@ -12,17 +12,29 @@
 }
 
 .options {
-    border: 1px red solid;
     width: 16rem;
     height: 5.5rem;
     display: grid;
     position: absolute;
     justify-content: space-evenly;
-    grid-template-columns: 47% 47%;
+    grid-template-columns: 49% 49%;
     top: 30%;
     left: 58%;
 }
 
+.options > button {
+    background-color: #1d7ca1;
+    border-color: #1C1D23;
+    color: rgb(226, 215, 215);
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+.options > button:hover {
+    background-color: #6cc8ec;
+    color: rgb(70, 65, 65);
+    font-weight: 700;
+}
 
 .button{
     background-color: #1C1D23;
