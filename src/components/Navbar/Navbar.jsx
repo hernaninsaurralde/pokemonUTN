@@ -5,7 +5,7 @@ import SearchBar from '../../components/SearchBar/SearchBar';
 import Logo from '/images/palanding.png';
 
 
-const Navbar = ({ name, setName}) => {
+const Navbar = ({  searchTerm, handleSearch}) => {
 
 
 
@@ -18,7 +18,7 @@ const Navbar = ({ name, setName}) => {
                 </span>
             </Link>
 
-            <SearchBar name ={name} setName={setName} ></SearchBar>
+            <SearchBar searchTerm ={searchTerm} handleSearch={handleSearch} ></SearchBar>
     </nav>
     
     

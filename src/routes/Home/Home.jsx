@@ -1,6 +1,6 @@
 import React from 'react';
 import style from './Home.module.css';
-import {useEffect, useState, useMemo} from 'react';
+import {useEffect, useState, useMemo, useRef} from 'react';
 import Card from '../../components/Card/Card';
 import axios from 'axios'; 
 import Navbar from '../../components/Navbar/Navbar';
@@ -12,20 +12,21 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
     
-    const baseURL = 'https://pokeapi.co/api/v2/pokemon/?limit=200'
-    const extendedLimit = "?limit=150"
-    const  [order, setOrder] = useState("normal")
-    const  [types, setTypes] = useState([])
-    const  [selectedType, setSelectedType] = useState("All")
+    const baseURL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
+    const  [order, setOrder] = useState("normal");
+    const  [types, setTypes] = useState([]);
+    const  [selectedType, setSelectedType] = useState("All");
 
     const  [searchTerm, setSearchTerm] = useState("") // es lo que escribe el usuario
     const  [errorPokeNotFound, setErrorPokeNotFound] = useState(false);
    
-    const  [currentPage, setCurrentPage] = useState(1)
-    const  [allPokemons, setAllPokemons] = useState([])
+    const  [currentPage, setCurrentPage] = useState(1);
+    const  [allPokemons, setAllPokemons] = useState([]);
 
     const indexOfLastPokemon = currentPage * 20;
     const indexOfFirstPokemon = indexOfLastPokemon - 20;
+    const  orderRef = useRef(); 
+    const  typeRef = useRef();
    
 
     useEffect(() =>{
@@ -72,6 +73,7 @@ const Home = () => {
 //-----------------------------------------------------------------------------------------------------------------
 
 let filtered = allPokemons
+
 
 
 const filteredList = useMemo(() =>{
@@ -160,10 +162,23 @@ const handleOrder = (e) => {
 
 }
 
+
+const reloadAll =  () =>  {
+
+    setSearchTerm("")
+    
+    setSelectedType("All")
+    typeRef.current.value = "All"
+    setOrder('normal')
+    orderRef.current.value = "normal"
+    setCurrentPage(1)
+
+}
+
     return (
     <div className = {style.fondo}>
         <Navbar searchTerm ={searchTerm} handleSearch={handleSearch} ></Navbar>
-        <button  className={style.poke} ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
+        <button onClick={() => reloadAll()} className={style.poke} ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
 
         
         <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>
@@ -173,14 +188,14 @@ const handleOrder = (e) => {
         </Link>
 
         <div className={style.sortfilter}>
-                <select onChange={(e)=> handleOrder(e)}>
+                <select ref={orderRef} onChange={(e)=> handleOrder(e)}>
                     <option value="normal">Normal</option>
                     <option value="asc">A - Z</option>
                     <option value="desc">Z - A</option>
                 
                 </select>
     
-                <select onChange= {(e) => handleType(e)}>
+                <select ref = {typeRef} onChange= {(e) => handleType(e)}>
                     <option value="All">all types</option>
                     {
                         types.map( type => (
