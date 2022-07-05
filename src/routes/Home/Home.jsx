@@ -178,7 +178,7 @@ const reloadAll =  () =>  {
     return (
     <div className = {style.fondo}>
         <Navbar searchTerm ={searchTerm} handleSearch={handleSearch} ></Navbar>
-        <button onClick={() => reloadAll()} className={style.poke} ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
+        <button className={style.poke} onClick={() => reloadAll()}  ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
 
         
         <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>

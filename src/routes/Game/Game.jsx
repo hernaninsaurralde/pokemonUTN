@@ -49,28 +49,22 @@ export default function Game() {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    
+    /*
     useEffect(() => {
         console.log('entra use effect')
         
-            let pokeOptions = []
-            
-            for(let i = 0; i < 4; i++){
+            setPokeOptions([])
+            for (let i = 0; i < 4; i++) {
                 //chosenPokemons.length
-                let indexRandom = getRandomInt(0, 10) ;
+                let indexRandom = getRandomInt(0, 10);
                 let poke = chosenPokemons.splice(indexRandom, 1);
                 console.log("poke", poke)
-                pokeOptions.push(...poke)
+                setPokeOptions(prevState => [...prevState, ...poke])
             }
-
         console.log(pokeOptions)
-    }, [chosenPokemons]) 
+    }, [chosenPokemons]) */
 
     
-
-
-    // USE MEMO--------------------------------------
-    /*
          const pokeOptions = useMemo(()=>{
             let pokeOptions = []
             console.log("all pk",allPokemons1)
@@ -86,7 +80,7 @@ export default function Game() {
          },[allPokemons1])
     
          console.log(pokeOptions)
-        */
+         
 
     return (
         <div className={style.game}>
@@ -97,10 +91,16 @@ export default function Game() {
                 </h3>
             ) : (
                 <>
-                    <h1> {pokeOptions[0].data.name} |</h1>
-                    <h1> {pokeOptions[1].data.name} |</h1>
-                    <h1> {pokeOptions[2].data.name} |</h1>
-                    <h1> {pokeOptions[3].data.name} |</h1>
+                    <img className={style.pokedex} src={pokedex} alt="pokedex">
+                        
+                    </img>
+                    <div className={style.options}>
+                        <button > {pokeOptions[0].data.name} </button>
+                        <button > {pokeOptions[1].data.name} </button>
+                        <button > {pokeOptions[2].data.name} </button>
+                        <button > {pokeOptions[3].data.name} </button>
+                    </div>
+                    
                 </>
 
 
