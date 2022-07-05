@@ -45,8 +45,6 @@ const Home = () => {
     },[])
 
 
-    
-         
     useEffect( () => {
         const grabData = async () => {
             setErrorPokeNotFound(false)
@@ -143,8 +141,6 @@ const filteredList = useMemo(() =>{
 
 
 },[allPokemons, searchTerm, selectedType, order])
-
-
 
 
 
