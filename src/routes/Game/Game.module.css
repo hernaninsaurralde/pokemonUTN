@@ -1,21 +1,20 @@
 .home{
-    position: absolute;
     width: 10vw;
 
     left: 4%;
     top: 4%;
 }
 
-.pokedex{
-    height: 90vh;
-    position: relative;
+.display{
+    height: 500px;
+    width: 500px;
+    background-color: red;
 }
 
 .options {
-    width: 16rem;
+    width: 16em;
     height: 5.5rem;
     display: grid;
-    position: absolute;
     justify-content: space-evenly;
     grid-template-columns: 49% 49%;
     top: 30%;
