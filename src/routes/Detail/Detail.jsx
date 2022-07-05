@@ -133,7 +133,7 @@ const Detail = () => {
 
             <div className={style.firstinfo}>
               <div className={style.descripok} style={{ display: 'flex', flexFlow: 'column', alignItems: 'flex-start' }} >
-                <span style={{ color: "black", fontWeight: '500', fontSize: "18px" }}>Description</span>
+                <span style={{ color: "black", fontWeight: '500', fontSize: "18px"}}>Description</span>
                 <span style={{ alignSelf: 'flex-start' }}>
                   {/* Aca va la descripcion, tiene seteado el texto nro 4*/}
 

@@ -36,9 +36,8 @@ export default function Game() {
             .then(data => {
                  console.log('tiene que entea 1 vez')
                 setAllPokemons1(data)
-                setChosenPokemons(prevState => [prevState, ...allPokemons1])
+                setChosenPokemons(allPokemons1)
             })
-
     }, [])
 
 
@@ -50,22 +49,28 @@ export default function Game() {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    /*
+    
     useEffect(() => {
         console.log('entra use effect')
         
-            setPokeOptions([])
-            for (let i = 0; i < 4; i++) {
+            let pokeOptions = []
+            
+            for(let i = 0; i < 4; i++){
                 //chosenPokemons.length
-                let indexRandom = getRandomInt(0, 10);
+                let indexRandom = getRandomInt(0, 10) ;
                 let poke = chosenPokemons.splice(indexRandom, 1);
                 console.log("poke", poke)
-                setPokeOptions(prevState => [...prevState, ...poke])
+                pokeOptions.push(...poke)
             }
+
         console.log(pokeOptions)
-    }, [chosenPokemons]) */
+    }, [chosenPokemons]) 
 
     
+
+
+    // USE MEMO--------------------------------------
+    /*
          const pokeOptions = useMemo(()=>{
             let pokeOptions = []
             console.log("all pk",allPokemons1)
@@ -81,7 +86,7 @@ export default function Game() {
          },[allPokemons1])
     
          console.log(pokeOptions)
-         
+        */
 
     return (
         <div className={style.game}>
