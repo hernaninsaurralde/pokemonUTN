@@ -121,7 +121,7 @@ useEffect(() => {
               
 
               {
-                pokeOptions.length ?
+                pokeOptions.length && game === false ?
                 <div className={style.options}>
                         <button onClick={(e)=> handleOption(e)}> {pokeOptions[0].data.name.toUpperCase()} </button>
                         <button onClick={(e)=> handleOption(e)} > {pokeOptions[1].data.name.toUpperCase()} </button>
