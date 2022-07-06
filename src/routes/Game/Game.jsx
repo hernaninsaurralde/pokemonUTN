@@ -15,12 +15,11 @@ import reload from '/images/reload.svg';
 
 export default function Game() {
 
-    const [input, setInput] = useState('')
     const [success, setSuccess] = useState(true)
     const [game, setGame] = useState(false)
     const [allPokemons, setAllPokemons] = useState([]);
-    const [chosenPokemons, setChosenPokemons] = useState([]);
-    const [pokeOptions, setPokeOptions] = useState([]);
+    const [chosenPokemon, setChosenPokemon] = useState([]); 
+    const [pokeOptions, setPokeOptions] = useState([]);// 4 pokemons para opciones
     const baseURL = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
     //const [pokeOptions, setPokeOptions] = useState([])
     // console.log(myPokemon[0] ? myPokemon[0].name : 'no hay nombre')
@@ -38,19 +37,15 @@ export default function Game() {
         for(let i = 0; i < 4; i++){
             //chosenPokemons.length
             let indexRandom = getRandomInt(0, 148) ;
-
             //let poke = chosenPokemons.filter(indexRandom, 1);
-            
             const { 0: poke } = allPokemons.filter((poke) => poke.data.id === indexRandom);
-            
             pokeSorted.push(poke)
-            
         }
-           
         setPokeOptions(pokeSorted)
 
-
-
+        // selecciona pokemon random elegido y lo pone en un estado
+        let indexPok = getRandomInt(0, 3)
+        setChosenPokemon(pokeSorted[indexPok])
 }
 
 
@@ -75,7 +70,7 @@ useEffect(() => {
                         .then(data => {
                             console.log('tiene que entea 1 vez')
                             setAllPokemons(data)
-                            setChosenPokemons(prevState => [prevState, ...allPokemons])
+                            //setChosenPokemons(prevState => [prevState, ...allPokemons])
                         })
     }
         
@@ -88,7 +83,20 @@ useEffect(() => {
 
 
     //pokeOptions[0].data.sprites.other.home.front_default
-  console.log(pokeOptions)
+
+
+  const handleOption = (e) => {
+    console.log(e.target.innerText.toLowerCase())
+        console.log(chosenPokemon.data.name)
+
+    if( e.target.innerText.toLowerCase() == chosenPokemon.data.name){
+        
+        setSuccess(true)
+    } else {
+        setSuccess(false)
+    }
+    setGame(true)
+}
 
     return (
         <div className={style.game}>
@@ -105,7 +113,7 @@ useEffect(() => {
               <img src={background} className={style.bkg} alt="pokebola" width='580px'/>
               {
                 pokeOptions.length ?
-                <img src={pokeOptions[0].data.sprites.other.home.front_default} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> :
+                <img src={chosenPokemon.data.sprites.other.home.front_default} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> :
                 <img src={gamegif} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> 
             
               }
@@ -115,20 +123,15 @@ useEffect(() => {
               {
                 pokeOptions.length ?
                 <div className={style.options}>
-                        <button > {pokeOptions[0].data.name.toUpperCase()} </button>
-                        <button > {pokeOptions[1].data.name.toUpperCase()} </button>
-                        <button > {pokeOptions[2].data.name.toUpperCase()} </button>
-                        <button > {pokeOptions[3].data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[0].data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[1].data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[2].data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[3].data.name.toUpperCase()} </button>
                 </div>
                  :
                 <div></div>
-            
               }
-
-              
-                
                 </span>
-            
               {
                   game ? 
                   success ?
@@ -143,7 +146,6 @@ useEffect(() => {
               }
             </div>
         </div>
-                        
         </div>
     )
 }
