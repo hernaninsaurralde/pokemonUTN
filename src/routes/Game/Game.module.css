@@ -1,40 +1,11 @@
+
 .home{
+    position: absolute;
     width: 10vw;
 
     left: 4%;
     top: 4%;
 }
-
-.display{
-    height: 500px;
-    width: 500px;
-    background-color: red;
-}
-
-.options {
-    width: 16em;
-    height: 5.5rem;
-    display: grid;
-    justify-content: space-evenly;
-    grid-template-columns: 49% 49%;
-    top: 30%;
-    left: 58%;
-}
-
-.options > button {
-    background-color: #1d7ca1;
-    border-color: #1C1D23;
-    color: rgb(226, 215, 215);
-    font-weight: 700;
-    border-radius: 5px;
-}
-
-.options > button:hover {
-    background-color: #6cc8ec;
-    color: rgb(70, 65, 65);
-    font-weight: 700;
-}
-
 .button{
     background-color: #1C1D23;
     border: 2px solid rgb(51, 51, 51);
@@ -72,7 +43,7 @@
     min-height: 580px;
     margin-top: 8%;
     margin-bottom: 32px;
-    background: #ffcc00;
+    background: #FB0506;
     padding: 15px;
     border: 10px solid #0074bd;
     border-radius: 15px;
@@ -177,3 +148,32 @@
     letter-spacing: 1px;
     text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
 }
+
+.options {
+    width: 16em;
+    height: 5.5rem;
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 49% 49%;
+    top: 30%;
+    left: 58%;
+}
+
+.options > button {
+    background-color: #1d7ca1;
+    border-color: #1C1D23;
+    color: rgb(226, 215, 215);
+    font-weight: 700;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 var(--margin);
+    border-radius: 6px;
+    border-color: #d3d3d3;
+}
+
+.options > button:hover {
+    background-color: #6cc8ec;
+    color: rgb(70, 65, 65);
+    font-weight: 700;
+}
+

@@ -5,6 +5,7 @@ import style from './Game.module.css';
 import { Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import pokedex from '/images/pokedex.png';
+import palanding from '/images/palanding.png';
 import Loading from '/images/pokeLoading.gif';
 import gamelogo from '/images/gamelogo.png';
 import gamegif from '/images/gamegif.gif';
@@ -27,7 +28,6 @@ export default function Game() {
 
     const actualizar = () => {
 
-
         let pokeSorted = []
         console.log("all pk",allPokemons)
         function getRandomInt(min, max) {
@@ -35,7 +35,6 @@ export default function Game() {
             max = Math.floor(max);
             return Math.floor(Math.random() * (max - min + 1) + min);
         }
-
         for(let i = 0; i < 4; i++){
             //chosenPokemons.length
             let indexRandom = getRandomInt(0, 148) ;
@@ -47,8 +46,11 @@ export default function Game() {
             pokeSorted.push(poke)
             
         }
-            console.log(pokeSorted)
+           
         setPokeOptions(pokeSorted)
+
+
+
 }
 
 
@@ -80,46 +82,52 @@ useEffect(() => {
     if(!pokeOptions.length && allPokemons.length) {
         console.log("entro al 2do if")
                 actualizar()
-           
-
     }
 
 }, [allPokemons ])
 
 
-
+    //pokeOptions[0].data.sprites.other.home.front_default
   console.log(pokeOptions)
 
     return (
         <div className={style.game}>
 
             
-            {pokeOptions.length === 0 ? (
-                <h3>
-                    <img src={Loading} className={style.loading} alt="Loading..." />
-                </h3>
-            ) : (
-                
+         
 
     <div className={style.game}>
-            <Link to='/home' style={{textDecoration: 'none'}} className={style.home}><button className={style.button}><img  alt="pokebola" width='20px'/> Home</button></Link>
-            <img src={gamelogo} className={style.logo}alt="pokebola" width='540px'/>
+            <Link to='/home' style={{textDecoration: 'none'}} className={style.home}><button className={style.button}><img src={palanding} alt="palanding" width='80px'/></button></Link>
+          
             
             <div className={style.header}>
               <button  onClick={(e) => handleReload(e)} className={style.reload}><img src={reload} alt="pokebola" width='40px'/></button>
               <img src={background} className={style.bkg} alt="pokebola" width='580px'/>
               {
+                pokeOptions.length ?
+                <img src={pokeOptions[0].data.sprites.other.home.front_default} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> :
                 <img src={gamegif} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> 
             
               }
-              <span className={style.introduction}>Test your knowledge with this guess Pokemon game!
+              <span className={style.introduction}>  <img src={gamelogo} alt="pokebola" width='300px'/>
               
-              <div className={style.options}>
-                        <button > {pokeOptions[0].data.name} </button>
-                        <button > {pokeOptions[1].data.name} </button>
-                        <button > {pokeOptions[2].data.name} </button>
-                        <button > {pokeOptions[3].data.name} </button>
-                    </div></span>
+
+              {
+                pokeOptions.length ?
+                <div className={style.options}>
+                        <button > {pokeOptions[0].data.name.toUpperCase()} </button>
+                        <button > {pokeOptions[1].data.name.toUpperCase()} </button>
+                        <button > {pokeOptions[2].data.name.toUpperCase()} </button>
+                        <button > {pokeOptions[3].data.name.toUpperCase()} </button>
+                </div>
+                 :
+                <div></div>
+            
+              }
+
+              
+                
+                </span>
             
               {
                   game ? 
@@ -135,16 +143,7 @@ useEffect(() => {
               }
             </div>
         </div>
-               
-        
-                
-                
-
-            )
-
-
-
-            }
+                        
         </div>
     )
 }
