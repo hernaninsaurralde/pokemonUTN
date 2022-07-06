@@ -28,7 +28,7 @@ export default function Game() {
     const actualizar = () => {
 
         let pokeSorted = []
-        console.log("all pk",allPokemons)
+        
         function getRandomInt(min, max) {
             min = Math.ceil(min);
             max = Math.floor(max);
@@ -51,11 +51,9 @@ export default function Game() {
 
 
 useEffect(() => {
-    console.log("entro al useEffect")
     
     if(!allPokemons.length){
-        console.log("entro al 1er if")
-        
+         
                 const grabData = async () => {
                     const { data } = await axios(baseURL)
                     const { results } = data
@@ -68,14 +66,12 @@ useEffect(() => {
                 }
                 grabData()
                         .then(data => {
-                            console.log('tiene que entea 1 vez')
                             setAllPokemons(data)
                             //setChosenPokemons(prevState => [prevState, ...allPokemons])
                         })
     }
         
     if(!pokeOptions.length && allPokemons.length) {
-        console.log("entro al 2do if")
                 actualizar()
     }
 
@@ -98,48 +94,55 @@ useEffect(() => {
     setGame(true)
 }
 
+    const handleReload = (e) =>{
+        setGame(false)
+        setAllPokemons([])
+        setPokeOptions([])  
+    }
+
     return (
         <div className={style.game}>
 
             
-         
 
     <div className={style.game}>
-            <Link to='/home' style={{textDecoration: 'none'}} className={style.home}><button className={style.button}><img src={palanding} alt="palanding" width='80px'/></button></Link>
           
             
             <div className={style.header}>
+            <Link to='/home' style={{textDecoration: 'none'}} className={style.home}><button className={style.button}><img src={palanding} alt="palanding" width='100px'/></button></Link>
               <button  onClick={(e) => handleReload(e)} className={style.reload}><img src={reload} alt="pokebola" width='40px'/></button>
               <img src={background} className={style.bkg} alt="pokebola" width='580px'/>
               {
-                pokeOptions.length ?
-                <img src={chosenPokemon.data.sprites.other.home.front_default} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> :
+                pokeOptions.length && chosenPokemon ?
+                <img 
+                    src={chosenPokemon.data.sprites.other.home.front_default} 
+                    style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> :
                 <img src={gamegif} style={ game ? {filter: 'grayscale(0) brightness(100%)'} : {}} className={style.img} alt="Pokemon" width='220px'/> 
             
               }
-              <span className={style.introduction}>  <img src={gamelogo} alt="pokebola" width='300px'/>
+              <span className={style.introduction}>  <img src={gamelogo} alt="pokebola" width='300px' />
               
 
               {
                 pokeOptions.length && game === false ?
                 <div className={style.options}>
-                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[0].data.name.toUpperCase()} </button>
-                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[1].data.name.toUpperCase()} </button>
-                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[2].data.name.toUpperCase()} </button>
-                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[3].data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[0]?.data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[1]?.data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)} > {pokeOptions[2]?.data.name.toUpperCase()} </button>
+                        <button onClick={(e)=> handleOption(e)}> {pokeOptions[3]?.data.name.toUpperCase()} </button>
                 </div>
                  :
                 <div></div>
               }
                 </span>
               {
-                  game ? 
+                  game  ? 
                   success ?
                   <div className={style.result}>
-                      Correct! This pokemon is {chosenPokemon.data.name}
+                      Correct! This pokemon is {chosenPokemon?.data.name}
                   </div> :
                   <div className={style.result}>
-                      Oops! Incorrect. This pokemon is {chosenPokemon.data.name}
+                      Oops! Incorrect. This pokemon is {chosenPokemon?.data.name}
                   </div>
                   :
                   <div></div>
