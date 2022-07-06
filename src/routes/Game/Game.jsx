@@ -136,10 +136,10 @@ useEffect(() => {
                   game ? 
                   success ?
                   <div className={style.result}>
-                      Correct! This pokemon is 
+                      Correct! This pokemon is {chosenPokemon.data.name}
                   </div> :
                   <div className={style.result}>
-                      Oops! Incorrect. This pokemon is
+                      Oops! Incorrect. This pokemon is {chosenPokemon.data.name}
                   </div>
                   :
                   <div></div>
