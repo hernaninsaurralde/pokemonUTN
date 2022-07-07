@@ -26,10 +26,6 @@ const Detail = () => {
   const [pokemonLocation, setPokemonLocation] = useState([])
   const [section, setSection] = useState(1);
 
-
-  console.log(`https://pokeapi.co/api/v2/pokemon/${params.id}`)
-  console.log(pokemonSpe)
-
   // Busca Pokemon
   useEffect(() => {
     const fetchPokemon = async () => {

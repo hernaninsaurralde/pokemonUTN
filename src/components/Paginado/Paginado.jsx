@@ -5,18 +5,10 @@ export default function Paginado({filteredList, currentPage, setCurrentPage}){
     
     const pageNumbers = []
     
-    console.log(filteredList)
     for (let i = 0 ; i < filteredList.length / 20 ; i++){
         pageNumbers.push(i + 1)
     }
 
-    /*
-    1 - 1 20
-    2- 21 
-    3 - 40 59
-
-
-    */
 
     return(
         <nav >

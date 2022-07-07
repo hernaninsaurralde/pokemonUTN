@@ -68,17 +68,14 @@ const Home = () => {
     useEffect(() => {
         console.log("Effect name search bar")
         if(!name){
-            console.log("no hay name")
             if(sortedArray.length === 0){
                 setResultsFiltered(allPokemons)
             } else{
-                console.log("aca cambie el filtro papa")
                 setResultsFiltered(sortedArray)
             }  
 
         }else{
             let laData = []
-            console.log("HAY NAME")
             laData = allPokemons.filter( (poke) =>   poke.data.name.includes(name)) 
             setResultsFiltered(laData)
         }
@@ -87,11 +84,9 @@ const Home = () => {
 
     // Entra cuando cambia el orden
     useEffect(() => {
-        console.log("Effect order")
         let sorted
         switch (order) {
             case 'normal': 
-                        console.log("ID")
                         sorted = resultsFiltered.sort((a,b) => {
                         if(a.data.id > b.data.id){
                             return 1;
@@ -103,8 +98,6 @@ const Home = () => {
                         })
                     break;
             case 'asc': 
-                        
-                        console.log("ASC")
                         sorted = resultsFiltered.sort((a,b) => {
                         if(a.data.name > b.data.name){
                             return 1;
@@ -117,7 +110,6 @@ const Home = () => {
                         
                 break;
             case 'desc':
-                console.log("DESC")
                         sorted = resultsFiltered.sort((a,b) => {
                         if(a.data.name > b.data.name){
                             return -1;
@@ -134,14 +126,12 @@ const Home = () => {
         }
         setSortedArray(sorted)
        setResultsFiltered(sorted)
-        console.log(resultsFiltered)
     },[order])
     
 
 
     //averiguar como poner el valor de ordenamiento en normal y el de typos en alltypes
     function reloadAll  ()  {
-        console.log('3')
         setName("")
         handleFilterByType("All")
         setOrder('normal')
@@ -150,7 +140,6 @@ const Home = () => {
     }
 
     function handleFilterByType (e) {
-        console.log('çambio type')
         if(e === "All"){
             //averiguar como poner el valor del input de ordenamiento o sort en value = "normal"
             setResultsFiltered(allPokemons)
@@ -178,12 +167,6 @@ const Home = () => {
         }
     }
 
-
-    function goToNumber (num) {
-        const offset = (num*20)-20
-        setPageNumber(num)
-        setCurrentPageUrl(`https://pokeapi.co/api/v2/pokemon/?limit=100&offset=${offset}`)
-    }
       
     return (
        

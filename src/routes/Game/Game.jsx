@@ -3,14 +3,10 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import style from './Game.module.css';
 import { Link } from 'react-router-dom';
-import { useMemo } from 'react';
-import pokedex from '/images/pokedex.png';
 import palanding from '/images/palanding.png';
-import Loading from '/images/pokeLoading.gif';
 import gamelogo from '/images/gamelogo.png';
 import gamegif from '/images/gamegif.gif';
 import background from '/images/pokemongame.png';
-import Navbar from '../../components/Navbar/Navbar';
 import reload from '/images/reload.svg';
 
 export default function Game() {
@@ -82,9 +78,7 @@ useEffect(() => {
 
 
   const handleOption = (e) => {
-    console.log(e.target.innerText.toLowerCase())
-        console.log(chosenPokemon.data.name)
-
+  
     if( e.target.innerText.toLowerCase() == chosenPokemon.data.name){
         
         setSuccess(true)
