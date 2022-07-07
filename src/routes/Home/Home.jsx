@@ -13,17 +13,17 @@ import { Link } from 'react-router-dom';
 const Home = () => {
     
     const baseURL = 'https://pokeapi.co/api/v2/pokemon/?limit=200';
-    const  [order, setOrder] = useState("normal");
-    const  [types, setTypes] = useState([]);
-    const  [selectedType, setSelectedType] = useState("All");
-    const  [searchTerm, setSearchTerm] = useState("") // es lo que escribe el usuario
-    const  [currentPage, setCurrentPage] = useState(1);
-    const  [allPokemons, setAllPokemons] = useState([]);
+    const [order, setOrder] = useState("normal");
+    const [types, setTypes] = useState([]);
+    const [selectedType, setSelectedType] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("") // es lo que escribe el usuario
+    const [currentPage, setCurrentPage] = useState(1);
+    const [allPokemons, setAllPokemons] = useState([]);
 
     const indexOfLastPokemon = currentPage * 20;
     const indexOfFirstPokemon = indexOfLastPokemon - 20;
-    const  orderRef = useRef(); 
-    const  typeRef = useRef();
+    const orderRef = useRef(); 
+    const typeRef = useRef();
    
 
     useEffect(() =>{
@@ -147,13 +147,11 @@ const handleSearch = (e) => {
 }
 
 const handleType = (e) => {
-    console.log(e.target.value)
     setSelectedType(e.target.value)
 }
 
 
 const handleOrder = (e) => {
-    console.log(e.target.value)
     setOrder(e.target.value)
 
 }

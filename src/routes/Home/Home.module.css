@@ -88,11 +88,17 @@ select {
 
 .sortOrder {
     width: 13em;
+    color: #0D2B0A;
     font-size: 15px;
+    font-weight: 600;
+    background-color: #f7c439;;
 }
 
 .sortType {
     width: 13em;
+    color: #0D2B0A;
     font-size: 15px;
+    font-weight: 600;
+    background-color: #f7c439;;
 }
 
