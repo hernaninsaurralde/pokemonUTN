@@ -16,10 +16,7 @@ const Home = () => {
     const  [order, setOrder] = useState("normal");
     const  [types, setTypes] = useState([]);
     const  [selectedType, setSelectedType] = useState("All");
-
     const  [searchTerm, setSearchTerm] = useState("") // es lo que escribe el usuario
-    const  [errorPokeNotFound, setErrorPokeNotFound] = useState(false);
-   
     const  [currentPage, setCurrentPage] = useState(1);
     const  [allPokemons, setAllPokemons] = useState([]);
 
@@ -48,7 +45,6 @@ const Home = () => {
 
     useEffect( () => {
         const grabData = async () => {
-            setErrorPokeNotFound(false)
             const { data } = await axios(baseURL)
             const { results } = data
            
@@ -166,7 +162,6 @@ const handleOrder = (e) => {
 const reloadAll =  () =>  {
 
     setSearchTerm("")
-    
     setSelectedType("All")
     typeRef.current.value = "All"
     setOrder('normal')
@@ -183,23 +178,25 @@ const reloadAll =  () =>  {
         
         <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>
             <button className={style.poke}>
-                <img src={pokedex} alt="Who's that Pokemon" width='100px'/>
+                <img src={pokedex} alt="Who's that Pokemon" width='80px'/>
             </button>
         </Link>
 
         <div className={style.sortfilter}>
-                <select ref={orderRef} onChange={(e)=> handleOrder(e)}>
+                <select className={style.sortOrder} ref={orderRef} onChange={(e)=> handleOrder(e)}>
                     <option value="normal">Normal</option>
                     <option value="asc">A - Z</option>
                     <option value="desc">Z - A</option>
                 
                 </select>
     
-                <select ref = {typeRef} onChange= {(e) => handleType(e)}>
-                    <option value="All">all types</option>
+                <select className={style.sortType} ref = {typeRef} onChange= {(e) => handleType(e)}>
+                    <option  value="All">All types</option>
                     {
                         types.map( type => (
-                            <option value={type.name} key={type.name}>{type.name}</option>
+                            <option value={type.name} key={type.name}>
+                               {type.name.charAt(0).toUpperCase() + type.name.slice(1)}
+                            </option>
                         ))
                     }
                 </select>

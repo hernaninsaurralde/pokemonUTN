@@ -86,4 +86,13 @@ select {
     transform: translateY(-4px);
 }
 
+.sortOrder {
+    width: 13em;
+    font-size: 15px;
+}
+
+.sortType {
+    width: 13em;
+    font-size: 15px;
+}
 
