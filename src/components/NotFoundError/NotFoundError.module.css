@@ -1,0 +1,15 @@
+
+.home {
+    background: #133D0F;
+    min-height: 100vh;
+   
+}
+
+.text{
+    color: #dbd3d3;
+    font-size: 2em;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+ 
+}

@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Paginado from '../../components/Paginado/Paginado';
 import poke from '/images/pokebola.png';
 import pokedex from '/images/pokedex.png';
+import pokeLoading from '/images/pokeloading.gif'
 
 import { Link } from 'react-router-dom';
 
@@ -188,7 +189,7 @@ const reloadAll =  () =>  {
                 
                 </select>
     
-                <select className={style.sortType} ref = {typeRef} onChange= {(e) => handleType(e)}>
+                <select className={style.sortOrder} ref = {typeRef} onChange= {(e) => handleType(e)}>
                     <option  value="All">All types</option>
                     {
                         types.map( type => (
@@ -204,13 +205,47 @@ const reloadAll =  () =>  {
         <Paginado filteredList = {filteredList} currentPage = {currentPage} setCurrentPage={setCurrentPage}></Paginado>
         
         <div className={style.home}>
-                {
+
+                     {/* Si aun no cargo allPokemons, entonces muestro el loading */}
+                {allPokemons.length === 0 
+                ? 
+                (
+                    <h3>
+                        <img src={pokeLoading} className={style.loading} alt="Loading..." width={'300px'}/>
+                    </h3>
+                ) 
+                :
+                filteredList.length === 0 
+                   ?
+                   (
+                    <h3>
+                        <img src="images/searchNotFound.gif" className={style.loading} alt="NotFound..." />
+                        
+                    </h3>
+                   )
+                   :
+                   (
+                    /* si ya cargo el allPokemons entonces mapeo la variable */
                     filteredList.slice(indexOfFirstPokemon, indexOfLastPokemon).map(poke => {
                         return (
                             <Card key={poke.data.id} poke={poke.data}></Card>
                         )
                     })
+                   ) 
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+              
             </div>
     </div>
   )
