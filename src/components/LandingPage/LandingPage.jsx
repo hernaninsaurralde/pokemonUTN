@@ -15,6 +15,9 @@ export default function LandingPage() {
       
       </div>
       <img src="images/Ashe.png" alt="Loading.." width="180px" />
+      <footer className={style}>
+        Project by Gabriel Antonietti and Ignacio Insaurralde
+      </footer>
     </div>
   );
 }

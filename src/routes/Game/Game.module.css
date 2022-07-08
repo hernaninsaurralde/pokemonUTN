@@ -2,7 +2,6 @@
 .home{
     position: absolute;
     width: 10vw;
-
     left: 4%;
     top: 1%;
 }
@@ -42,8 +41,7 @@
 .header {
     width: 600px;
     min-height: 580px;
-    margin-top: 8%;
-    margin-bottom: 32px;
+    margin-top: 10px;
     background: #054916;
     padding: 15px;
     border: 10px solid #0074bd;
@@ -88,23 +86,6 @@
     margin-left: 150px;
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 8%;
-}
-.form input{
-    border: 3px solid #0074bd;
-    border-radius: 4px;
-    display: block;
-    width: 50%;
-    padding: 10px;
-    font-size: 14px;
-    font-family: inherit;
-    margin-left: 2vw;
-}
-
 /* Button Style */
 .form button{
     cursor: pointer;
@@ -137,7 +118,7 @@
     background-position: 0 0;
 }
 
-.result{
+.resultOk{
     position: absolute;
     bottom: 15%;
     width: 100%;
@@ -149,6 +130,20 @@
     text-align: center;
     letter-spacing: 1px;
     text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+}
+
+.resultFail{
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+   
+    font-size: 24px;
+    display: block;
+    text-transform:uppercase;
+    color: #f2f2f2;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 0 #b41d1d, 2px -2px 0 #b41d1d, -2px 2px 0 #b41d1d, -2px -2px 0 #b41d1d, 2px 0px 0 #b41d1d, 0px 2px 0 #b41d1d, -2px 0px 0 #b41d1d, 0px -2px 0 #b41d1d;
 }
 
 .options {
