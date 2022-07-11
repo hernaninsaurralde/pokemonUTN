@@ -7,7 +7,8 @@ import Navbar from '../../components/Navbar/Navbar';
 import Paginado from '../../components/Paginado/Paginado';
 import poke from '/images/pokebola.png';
 import pokedex from '/images/pokedex.png';
-import pokeLoading from '/images/pokeloading.gif'
+import pokeLoading from '/images/pokeloading.gif';
+import notfound from '/images/notfound.png';
 
 import { Link } from 'react-router-dom';
 
@@ -172,12 +173,12 @@ const reloadAll =  () =>  {
     return (
     <div className = {style.fondo}>
         <Navbar searchTerm ={searchTerm} handleSearch={handleSearch} ></Navbar>
-        <button className={style.poke} onClick={() => reloadAll()}  ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
+        <button className={style.reload} onClick={() => reloadAll()}  ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
 
         
         <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>
-            <button className={style.poke}>
-                <img src={pokedex} alt="Who's that Pokemon" width='80px'/>
+            <button className={style.reload}>
+                <img src={pokedex} alt="Who's that Pokemon" width='30px'/> Play!
             </button>
         </Link>
 
@@ -218,10 +219,10 @@ const reloadAll =  () =>  {
                 filteredList.length === 0 
                    ?
                    (
-                    <h3>
-                        <img src="images/searchNotFound.gif" className={style.loading} alt="NotFound..." />
-                        
-                    </h3>
+                    <div className={style.text}>
+                    <img src={notfound} alt="not found" width={'130px'}/>
+                    <h2>Pokemon not found</h2>
+                  </div>
                    )
                    :
                    (
