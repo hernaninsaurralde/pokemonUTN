@@ -20,7 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           <Route path="/" element={<App />}></Route>
           <Route path="home" element={<Home></Home>}></Route>
           <Route path="detail/:id" element={<Detail></Detail>}></Route>
-          <Route path="/game" element={<Game />} ></Route>
+          <Route path="game" element={<Game />} ></Route>
           <Route path="*" element={<NotFoundError />} ></Route>
         </Routes>
       </BrowserRouter>
