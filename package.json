@@ -1,11 +1,7 @@
 {
   "name": "poke_api_practica",
   "private": true,
-  "version": "1.0.0",
-  "engines": {
-    "node": "14.18.2",
-    "npm": "6.x"
-  },
+  "version": "1.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
