@@ -14,7 +14,7 @@ const Navbar = ({  searchTerm, handleSearch}) => {
       <nav className={style.nav}>
         <Link to='/home'>
                 <span className={style.landinglink}>
-                    <img id="logoPoke" src={Logo} width="120" alt="landing" />
+                    <img id="logoPoke" className={style.logoPoke} src={Logo} alt="landing" />
                 </span>
             </Link>
 

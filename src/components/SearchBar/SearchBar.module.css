@@ -37,3 +37,18 @@
    padding-left: 10px; 
  }
  
+ @media (max-width:768px){
+  
+    .searchBox{
+      right: 20%;
+   }
+
+   .searchTxt{
+    font-size: 10px;
+   }
+  
+   .nav{
+    width: 100vh;
+   }
+  }
+

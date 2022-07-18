@@ -179,7 +179,7 @@
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-flow: column;
-    width: 500px;
+    width: 80%;
     margin-left: 6%;
     margin-top: 6%;
     color: rgb(41, 41, 41);
@@ -496,10 +496,31 @@
   .grid{
     display:flex;
     flex-direction: column;
+    grid-template-columns: 1fr;
+   
   }
   
+
   .visual{
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .img {
+    width: 200px;
+    height: 200px;
   }
   
+  .firstinfo{
+    background-color: rgb(206, 255, 158);
+    margin: 0px;
+    padding-right: 5px;
+  }
+
+  .importantinfo{
+    display: flex;
+    flex-direction: column;
+  }
 }

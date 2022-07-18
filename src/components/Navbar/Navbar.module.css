@@ -9,3 +9,14 @@
     padding-right: 5%;
     
 }
+
+.logoPoke{
+    width: 120px;
+}
+
+@media (max-width:768px){
+    .logoPoke{
+        width: 80px;
+    }
+
+  }

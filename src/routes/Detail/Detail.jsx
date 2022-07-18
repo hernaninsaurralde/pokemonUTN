@@ -76,7 +76,7 @@ const Detail = () => {
 
   return (
 
-    <div>
+    <div className={style.bg}>
 
       <Navbar />
 
