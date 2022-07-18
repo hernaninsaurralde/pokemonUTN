@@ -10,7 +10,7 @@ import pokedex from '/images/pokedex.png';
 import pokeLoading from '/images/pokeloading.gif';
 import notfound from '/images/notfound.png';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Home = () => {
     
@@ -173,14 +173,21 @@ const reloadAll =  () =>  {
     return (
     <div className = {style.fondo}>
         <Navbar searchTerm ={searchTerm} handleSearch={handleSearch} ></Navbar>
+
+        <div className={style.botones}>
+            
         <button className={style.reload} onClick={() => reloadAll()}  ><img src={poke} alt="pokebola" width='20px'/> Reload</button>
 
         
-        <Link to='/game' style={{textDecoration: 'none'}} className={style.game}>
+        <NavLink to='/game' style={{textDecoration: 'none'}} className={style.game}>
             <button className={style.reload}>
                 <img src={pokedex} alt="Who's that Pokemon" width='30px'/> Play!
             </button>
-        </Link>
+        </NavLink>
+    
+        
+        </div>
+        
 
         <div className={style.sortfilter}>
                 <select className={style.sortOrder} ref={orderRef} onChange={(e)=> handleOrder(e)}>

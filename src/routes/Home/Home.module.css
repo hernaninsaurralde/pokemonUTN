@@ -54,7 +54,7 @@ select {
 
 .game{
     position: absolute;
-    top: 12%;
+    margin-top: 1%;
     right: 2%;
     width: 10%;
 }
@@ -152,3 +152,25 @@ select {
    .reload> img{
     margin-right: 4px;
    }
+
+
+   @media (max-width:768px){
+    .reload {
+        font-size: 13px;
+    }
+
+    .fondo{
+        overflow-x: hidden;
+    }
+   .botones {
+    display: flex;
+    justify-content:space-around;
+    margin-bottom: 1%;
+   }
+   
+   .game{
+    position: relative;
+    margin-right: 15%;
+   }
+  }
+

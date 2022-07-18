@@ -8,6 +8,10 @@
     background: linear-gradient(90deg, rgb(48, 158, 1) 0%, rgba(9,121,29,1) 35%, rgba(0,255,94,1) 100%);
 }
 
+.logoimg{
+    width: 400px;
+}
+
 /* Button Style */
 .boton{
     margin-top: 2rem;
@@ -60,3 +64,22 @@ footer{
     left:10%;
 
 }
+
+
+@media (max-width:768px){
+    .imagen{
+        visibility: hidden;
+        position: absolute;
+    }
+    .position{
+        position: relative;
+    }
+
+    .entrada{
+        justify-self: flex-start;
+    }
+
+    .logoimg{
+        width: 250px;
+    }
+  }

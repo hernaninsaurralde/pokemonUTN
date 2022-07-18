@@ -50,5 +50,9 @@
    .nav{
     width: 100vh;
    }
+
+   .searchBtn {
+    visibility: hidden;
+   }
   }
 
