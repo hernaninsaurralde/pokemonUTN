@@ -18,7 +18,7 @@ export default function Paginado({filteredList, currentPage, setCurrentPage}){
                         <li key={number} style={{ listStyle:'none' }}>
                            <button 
                                 className={style.buttons} 
-                                style={ currentPage === number ? {color:"white"} : {color: "#797979"}}
+                                style={ currentPage === number ? {color:"white"} : {color: "#121212"}}
                                 onClick={() => setCurrentPage(number)}>
                                     {number}
                                     </button>

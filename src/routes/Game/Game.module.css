@@ -26,7 +26,7 @@
 }
 
 .game{
-    background-color: #1c231e;
+    background-color: var(--color-bg-dark);
     color: white;
     min-height: 100vh;
     display: flex;
@@ -42,7 +42,7 @@
     width: 600px;
     min-height: 580px;
     margin-top: 10px;
-    background: #054916;
+    background: #810202;
     padding: 15px;
     border: 10px solid #0074bd;
     border-radius: 15px;
@@ -129,7 +129,7 @@
     color: #f2f2f2;
     text-align: center;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+    text-shadow: 2px 2px 0 var(--game-correct), 2px -2px 0 var(--game-correct), -2px 2px 0 var(--game-correct), -2px -2px 0 var(--game-correct), 2px 0px 0 var(--game-correct), 0px 2px 0 var(--game-correct), -2px 0px 0 var(--game-correct), 0px -2px 0 var(--game-correct);
 }
 
 .resultFail{
@@ -143,7 +143,7 @@
     color: #f2f2f2;
     text-align: center;
     letter-spacing: 1px;
-    text-shadow: 2px 2px 0 #b41d1d, 2px -2px 0 #b41d1d, -2px 2px 0 #b41d1d, -2px -2px 0 #b41d1d, 2px 0px 0 #b41d1d, 0px 2px 0 #b41d1d, -2px 0px 0 #b41d1d, 0px -2px 0 #b41d1d;
+    text-shadow: 2px 2px 0 var(--game-incorrect), 2px -2px 0 var(--game-incorrect), -2px 2px 0 var(--game-incorrect), -2px -2px 0 var(--game-incorrect), 2px 0px 0 var(--game-incorrect), 0px 2px 0 var(--game-incorrect), -2px 0px 0 var(--game-incorrect), 0px -2px 0 var(--game-incorrect);
 }
 
 .options {

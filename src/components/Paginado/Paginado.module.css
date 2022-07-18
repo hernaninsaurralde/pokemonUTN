@@ -4,7 +4,7 @@
     margin: 0 var(--margin);
     border-radius: 6px;
     border-color: #d3d3d3;
-    background: #164e11;
+    background: var(--button-bg);
     max-width: auto;
     min-width: var(--size);
     height: var(--size);
