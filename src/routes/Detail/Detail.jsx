@@ -76,9 +76,9 @@ const Detail = () => {
 
   return (
 
-    <div className={style.bg}>
+    <div className={style.bg} style={ {overflowX: 'hidden'}}>
 
-      <Navbar />
+      <Navbar style={ {overflowX: 'hidden'}} />
 
 
       {pokemon.length === 0 || pokemonSpe.length === 0 ? (
@@ -130,7 +130,7 @@ const Detail = () => {
             <div className={style.firstinfo}>
               <div className={style.descripok} style={{ display: 'flex', flexFlow: 'column', alignItems: 'flex-start' }} >
                 <span style={{ color: "black", fontWeight: '500', fontSize: "18px"}}>Description</span>
-                <span style={{ alignSelf: 'flex-start' }}>
+                <span style={{ alignSelf: 'flex-start', width: '80%' }}>
                   {/* Aca va la descripcion, tiene seteado el texto nro 4*/}
 
                   {pokemonSpe.flavor_text_entries[4].flavor_text}
