@@ -9,7 +9,7 @@
 
 <h2> Integrantes: Gabriel Antonietti, Ignacio Insaurralde </h2>
 
-<h3> Vercel: https://appokemon-hernaninsaurralde.vercel.app/  </h3>
+<h3> Vercel: https://pokemonapp-hernaninsaurralde.vercel.app/  </h3>
 
 <p>Proyecto creado usando PokeApi https://pokeapi.co/, posee: <br>
 - Landing Page <br>
