@@ -105,7 +105,7 @@ const Detail = () => {
             
 
               {/* Imagen pokemon */}
-              <img src={pokemon.sprites.other.home.front_default} className={style.img} />
+              <img src={`${pokemon.sprites.other.home.front_default}`} className={style.img} />
 
               {/* Muestra los tipos */}
               <div className={style.types}>
