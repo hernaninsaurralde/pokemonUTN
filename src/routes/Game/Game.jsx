@@ -103,8 +103,8 @@ export default function Game() {
 
 
                 <div className={style.header}>
-                    <Link to='/home' style={{ textDecoration: 'none' }} className={style.home}><button className={style.button}><img src={palanding} alt="palanding" width='100px' /></button></Link>
-                    <button onClick={(e) => handleReload(e)} className={style.reload}><img src={reload} alt="pokebola" width='40px' /></button>
+                    <Link to='/home' style={{ textDecoration: 'none' }} className={style.home}><button className={style.button}><img src={palanding} alt="palanding" className={style.imgpalanding} /></button></Link>
+                    <button onClick={(e) => handleReload(e)} className={style.reload}><img src={reload} alt="pokebola" className={style.imgreload} /></button>
                     <img src={background} className={style.bkg} alt="pokebola" width='580px' />
                     {
                         pokeOptions.length && chosenPokemon ?
@@ -114,7 +114,7 @@ export default function Game() {
                             <img src={gamegif} style={game ? { filter: 'grayscale(0) brightness(100%)' } : {}} className={style.img} alt="Pokemon" width='220px' />
 
                     }
-                    <span className={style.introduction}>  <img src={gamelogo} alt="pokebola" width='300px' />
+                    <span className={style.introduction}>  <img className={style.gamelogo} src={gamelogo} alt="pokebola" />
 
 
                         {

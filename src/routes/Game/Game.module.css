@@ -36,7 +36,6 @@
 .logo{
     position: absolute;
    
-    
 }
 .header {
     width: 600px;
@@ -76,6 +75,18 @@
     top: 18%;
     filter: grayscale(100%) brightness(0); 
     transition: all 0.2s ease-in-out;
+}
+
+.imgreload{
+    width: 40px;
+}
+
+.imgpalanding{
+    width: 100px;
+}
+
+.gamelogo{
+    width: 300px;
 }
 
 .introduction{
@@ -174,3 +185,39 @@
     font-weight: 700;
 }
 
+
+@media (max-width:768px){
+    .game{
+        width: 100%;
+    }
+
+    .header{
+        position: relative;
+        width: 80%;
+    }
+
+    .bkg{
+        width: 100%;
+    }
+
+    .img{
+        width: 30%;
+    }
+
+    .imgreload{
+        width: 20px;
+    }
+
+    .imgpalanding{
+        width: 50px;
+    }
+
+    .gamelogo{
+        visibility: hidden;
+    }
+
+    .resultFail, .resultOk{
+        width: 90%;
+        bottom: 30%;
+    }
+}
